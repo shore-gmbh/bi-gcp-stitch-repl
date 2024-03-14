@@ -23,7 +23,7 @@ ENV AIRFLOW__CORE__LOAD_EXAMPLES=False
 
 # Copy your DAGs and plugins into the image
 COPY dags /opt/airflow/dags
-COPY plugins /opt/airflow/plugins
+#COPY plugins /opt/airflow/plugins
 
 # The default command to run on container start
 CMD ["airflow", "webserver"]
