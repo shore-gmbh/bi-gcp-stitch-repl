@@ -8,9 +8,9 @@ RUN pip install --no-cache-dir -r /requirements.txt
 # Set environment variables for Airflow configuration
 # Replace these with your actual database and Redis connection strings
 ENV AIRFLOW__CORE__EXECUTOR=CeleryExecutor
-ENV AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://fdc:$321090af.,!ab$@34.159.240.197:5432/bi-dwh
+ENV AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://fdc:321090af.%2C%21ab%24@34.159.240.197:5432/bi-dwh
 ENV AIRFLOW__CELERY__BROKER_URL=amqp://dgpxkxws:PWY8vS_lCBGEqMSu1crjrPP4dPjPsEnl@kangaroo.rmq.cloudamqp.com/dgpxkxws
-ENV AIRFLOW__CELERY__RESULT_BACKEND=db+postgresql://fdc:$321090af.,!ab$@34.159.240.197:5432/bi-dwh
+ENV AIRFLOW__CELERY__RESULT_BACKEND=db+postgresql://fdc:321090af.%2C%21ab%24@34.159.240.197:5432/bi-dwh
 ENV AIRFLOW__CORE__FERNET_KEY=DHVPKLI65pO4nmRnokSWvE3-JRbGhyS_vPPTLxMrJS4=
 ENV AIRFLOW__WEBSERVER__SECRET_KEY=dbaac0ac7c4dd2bd26235eaa4630765a
 ENV AIRFLOW__CORE__LOAD_EXAMPLES=False
