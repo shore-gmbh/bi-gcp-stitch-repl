@@ -25,5 +25,7 @@ ENV AIRFLOW__CORE__LOAD_EXAMPLES=False
 COPY dags /opt/airflow/dags
 #COPY plugins /opt/airflow/plugins
 
+#new changes
 # The default command to run on container start
-CMD ["airflow", "webserver"]
+CMD ["airflow", "webserver", "--port", "8080"]
+
