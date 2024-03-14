@@ -27,5 +27,5 @@ COPY dags /opt/airflow/dags
 
 #new changes
 # The default command to run on container start
-CMD ["airflow", "webserver", "--port", "8080"]
+CMD ["airflow", "webserver"]
 
