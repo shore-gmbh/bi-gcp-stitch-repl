@@ -25,6 +25,9 @@ ENV AIRFLOW__CORE__LOAD_EXAMPLES=False
 COPY dags /opt/airflow/dags
 #COPY plugins /opt/airflow/plugins
 
+# Copy the customized airflow.cfg into the container
+COPY airflow.cfg /opt/airflow/airflow.cfg
+
 #new changes
 # The default command to run on container start
 CMD ["airflow", "webserver"]
