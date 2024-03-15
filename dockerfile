@@ -5,6 +5,9 @@ FROM apache/airflow:2.6.1
 COPY requirements.txt /requirements.txt
 RUN pip install --no-cache-dir -r /requirements.txt
 
+# Install supervisord
+RUN pip install supervisor
+
 # Set environment variables for Airflow configuration
 # Replace these with your actual database and Redis connection strings
 ENV AIRFLOW__CORE__EXECUTOR=CeleryExecutor
@@ -28,7 +31,25 @@ COPY dags /opt/airflow/dags
 # Copy the customized airflow.cfg into the container
 COPY airflow.cfg /opt/airflow/airflow.cfg
 
-#new changes
-# The default command to run on container start
-CMD ["airflow", "webserver"]
+# #new changes
+# # The default command to run on container start
+# CMD ["airflow", "webserver"]
+
+# Copy the custom entrypoint script into the container
+COPY entrypoint.sh /entrypoint.sh
+
+COPY supervisord.conf /etc/supervisord.conf
+
+# Make the entrypoint script executable
+USER root
+RUN chmod +x /entrypoint.sh
+USER airflow
+
+# Run the entrypoint script
+ENTRYPOINT ["/entrypoint.sh"]
+
+
+
+
+
 
