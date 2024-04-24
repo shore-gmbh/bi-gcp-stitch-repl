@@ -4,7 +4,7 @@
 airflow db init
 
 # Reset the database
-airflow db reset
+#airflow db reset
 
 #supervisord -c /path/to/supervisord.conf
 
